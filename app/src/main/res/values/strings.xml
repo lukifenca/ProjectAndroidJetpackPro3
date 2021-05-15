@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Movie Life</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="judul_card">poster film</string>
+    <string name="content_image_main">movie banner</string>
+    <string name="content_image_detail">Poster Movie</string>
+    <string name="content_image_splash">logoIcon</string>
+    <string name="logo_rating">logoRating</string>
+    <string name="logo_genre">logoGenre</string>
+    <string name="txtsplash">Movie Life</string>
+    <string name="txtDetailJudul">Judul</string>
+    <string name="txtOverview">Overview</string>
+    <string name="txtDescription">Description</string>
+    <string name="logoBack">Back</string>
+    <string name="CoverPoster">Image Cover</string>
+    <string name="ImgFav">Image Favorite</string>
+    <string name="ImgHome">Image Home</string>
+    <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
+    <string name="message_ok">OK</string>
+</resources>

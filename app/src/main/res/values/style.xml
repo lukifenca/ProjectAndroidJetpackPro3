@@ -1,0 +1,4 @@
+<resources>
+
+    <style name="SplassScreenCustom1" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>

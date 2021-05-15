@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_all"
+        android:icon="@drawable/all"
+        android:title="All" />
+    <item
+        android:id="@+id/menu_movie"
+        android:icon="@drawable/movie"
+        android:title="Movies" />
+    <item
+        android:id="@+id/menu_tvshow"
+        android:icon="@drawable/tvshow"
+        android:title="TV Shows" />
+</menu>

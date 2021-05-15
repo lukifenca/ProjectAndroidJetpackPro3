@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/corner_radius"
+    card_view:cardBackgroundColor="#FFFFFF"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/corner_radius"
+        android:backgroundTint="#FD9A9A"
+        android:backgroundTintMode="screen"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/gambarcard"
+            android:layout_width="125dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:contentDescription="@string/judul_card"
+            android:src="@drawable/movie1"
+            card_view:civ_border_color="#FFFFFF"
+            card_view:civ_border_width="3dp"
+            card_view:civ_shadow="true"
+            card_view:civ_shadow_color="#7A7A7A"
+            card_view:civ_shadow_radius="5dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:srcCompat="@drawable/movie1" />
+
+        <TextView
+            android:id="@+id/txtJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/alike"
+            tools:text="Judul"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            card_view:layout_constraintStart_toEndOf="@+id/gambarcard"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/alike"
+            tools:text="Tipe"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toEndOf="@+id/gambarcard"
+            card_view:layout_constraintTop_toBottomOf="@+id/txtJudul" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
