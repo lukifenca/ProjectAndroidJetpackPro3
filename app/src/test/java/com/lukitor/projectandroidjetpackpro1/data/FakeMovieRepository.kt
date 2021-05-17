@@ -28,13 +28,10 @@ class FakeMovieRepository(
                 }.build()
                 return LivePagedListBuilder(localDataSource.getAllData(), config).build()
             }
-
             override fun shouldFetch(data: PagedList<MovieEntitiy>?): Boolean =
                 data == null || data.isEmpty()
-
             public override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllData()
-
             public override fun saveCallResult(courseResponses: List<MovieResponse>) {
                 val courseList = ArrayList<MovieEntitiy>()
                 for (response in courseResponses) {
@@ -53,7 +50,6 @@ class FakeMovieRepository(
             }
         }.asLiveData()
     }
-
     override fun getMovie(): LiveData<Resource<PagedList<MovieEntitiy>>> {
         return object :
             NetworkBoundResource<PagedList<MovieEntitiy>, List<MovieResponse>>(appExecutors) {
@@ -65,13 +61,10 @@ class FakeMovieRepository(
                 }.build()
                 return LivePagedListBuilder(localDataSource.getAllMovie(), config).build()
             }
-
             override fun shouldFetch(data: PagedList<MovieEntitiy>?): Boolean =
                 data == null || data.isEmpty()
-
             public override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllData()
-
             public override fun saveCallResult(courseResponses: List<MovieResponse>) {
                 val courseList = ArrayList<MovieEntitiy>()
                 for (response in courseResponses) {
@@ -104,13 +97,10 @@ class FakeMovieRepository(
                 }.build()
                 return LivePagedListBuilder(localDataSource.getAllTV(), config).build()
             }
-
             override fun shouldFetch(data: PagedList<MovieEntitiy>?): Boolean =
                 data == null || data.isEmpty()
-
             public override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllData()
-
             public override fun saveCallResult(courseResponses: List<MovieResponse>) {
                 val courseList = ArrayList<MovieEntitiy>()
                 for (response in courseResponses) {
@@ -131,10 +121,8 @@ class FakeMovieRepository(
             }
         }.asLiveData()
     }
-
     override fun getDetail(judul: String): LiveData<List<MovieEntitiy>> =
         localDataSource.getDetail(judul)
-
     override fun getFavorite(type: String): LiveData<PagedList<MovieEntitiy>> {
         val config =
             PagedList.Config.Builder().setEnablePlaceholders(false).setInitialLoadSizeHint(4)
@@ -145,7 +133,6 @@ class FakeMovieRepository(
         ).build()
         else return LivePagedListBuilder(localDataSource.getFavorite(type), config).build()
     }
-
     override fun setFavorite(movie: MovieEntitiy, status: Int) =
         appExecutors.diskIO().execute { localDataSource.setFavorite(movie, status) }
 }

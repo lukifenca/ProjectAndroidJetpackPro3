@@ -22,21 +22,16 @@ import java.util.concurrent.Executors
 @RunWith(MockitoJUnitRunner::class)
 class DataViewModelTest {
     private lateinit var viewModel: DataViewModel
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
     @Mock
     private lateinit var movieRepository: MovieRepository
-
     @Mock
     private lateinit var observer: Observer<Resource<PagedList<MovieEntitiy>>>
-
     @Before
     fun setUp() {
         viewModel = DataViewModel(movieRepository)
     }
-
     @Test
     fun getAllList() {
         val courses = PagedTestDataSources.snapshotAll(DataDummy.generateAllData())
@@ -51,7 +46,6 @@ class DataViewModelTest {
         Assert.assertEquals(expectedValue?.data, actualValue?.data)
         Assert.assertEquals(expectedValue?.data?.size, actualValue?.data?.size)
     }
-
     @Test
     fun getMovieList() {
         val courses = PagedTestDataSources.snapshot(DataDummy.generateMovieData())
@@ -66,7 +60,6 @@ class DataViewModelTest {
         Assert.assertEquals(expectedValue?.data, actualValue?.data)
         Assert.assertEquals(expectedValue?.data?.size, actualValue?.data?.size)
     }
-
     @Test
     fun getTvShowList() {
         val courses = PagedTestDataSources.snapshot(DataDummy.generateTVData())
@@ -81,7 +74,6 @@ class DataViewModelTest {
         Assert.assertEquals(expectedValue?.data, actualValue?.data)
         Assert.assertEquals(expectedValue?.data?.size, actualValue?.data?.size)
     }
-
     class PagedTestDataSources private constructor(private val items: List<MovieEntitiy>) :
         PositionalDataSource<MovieEntitiy>() {
         companion object {
@@ -91,7 +83,6 @@ class DataViewModelTest {
                     .setFetchExecutor(Executors.newSingleThreadExecutor())
                     .build()
             }
-
             fun snapshotAll(items: List<MovieEntitiy> = listOf()): PagedList<MovieEntitiy> {
                 return PagedList.Builder(PagedTestDataSources(items), 20)
                     .setNotifyExecutor(Executors.newSingleThreadExecutor())
@@ -99,14 +90,9 @@ class DataViewModelTest {
                     .build()
             }
         }
-
-        override fun loadInitial(
-            params: LoadInitialParams,
-            callback: LoadInitialCallback<MovieEntitiy>
-        ) {
+        override fun loadInitial(params: LoadInitialParams,callback: LoadInitialCallback<MovieEntitiy>) {
             callback.onResult(items, 0, items.size)
         }
-
         override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<MovieEntitiy>) {
             val start = params.startPosition
             val end = params.startPosition + params.loadSize

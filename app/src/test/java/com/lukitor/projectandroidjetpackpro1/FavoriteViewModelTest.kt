@@ -21,21 +21,16 @@ import java.util.concurrent.Executors
 @RunWith(MockitoJUnitRunner::class)
 class FavoriteViewModelTest {
     private lateinit var viewModel: FavoriteViewModel
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
     @Mock
     private lateinit var academyRepository: MovieRepository
-
     @Mock
     private lateinit var observer: Observer<List<MovieEntitiy>>
-
     @Before
     fun setUp() {
         viewModel = FavoriteViewModel(academyRepository)
     }
-
     @Test
     fun getFavorite() {
         val expected = MutableLiveData<PagedList<MovieEntitiy>>()
@@ -49,7 +44,6 @@ class FavoriteViewModelTest {
         Assert.assertEquals(expectedValue?.snapshot(), actualValue?.snapshot())
         Assert.assertEquals(expectedValue?.size, actualValue?.size)
     }
-
     class PagedTestDataSources private constructor(private val items: List<MovieEntitiy>) :
         PositionalDataSource<MovieEntitiy>() {
         companion object {
@@ -60,14 +54,9 @@ class FavoriteViewModelTest {
                     .build()
             }
         }
-
-        override fun loadInitial(
-            params: LoadInitialParams,
-            callback: LoadInitialCallback<MovieEntitiy>
-        ) {
+        override fun loadInitial(params: LoadInitialParams,callback: LoadInitialCallback<MovieEntitiy>) {
             callback.onResult(items, 0, items.size)
         }
-
         override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<MovieEntitiy>) {
             val start = params.startPosition
             val end = params.startPosition + params.loadSize

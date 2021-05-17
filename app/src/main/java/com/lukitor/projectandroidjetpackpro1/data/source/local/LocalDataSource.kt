@@ -23,7 +23,10 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
         mMovieDao.getFavorite(type)
 
     fun setFavorite(movie: MovieEntitiy, status: Int) {
-        movie.favorite = status
+        var newstate = status
+        if (newstate == 0) newstate = 1
+        else newstate = 0
+        movie.favorite = newstate
         mMovieDao.updateFavorite(movie)
     }
 }

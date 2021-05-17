@@ -107,9 +107,7 @@ class MovieRepositoryTest {
     fun setFavorite() {
         val dummyMovie: MovieEntitiy = DataDummy.generateAllData()[0]
         Mockito.`when`(appExecutors.diskIO()).thenReturn(testExecutors.diskIO())
-        var newState = dummyMovie.favorite
-        if (newState == 0) newState = 1
-        else newState = 0
+        val newState = dummyMovie.favorite
         Mockito.doNothing().`when`(local).setFavorite(dummyMovie,newState)
         movieRepository.setFavorite(dummyMovie,newState)
         verify(local, times(1)).setFavorite(dummyMovie,newState)

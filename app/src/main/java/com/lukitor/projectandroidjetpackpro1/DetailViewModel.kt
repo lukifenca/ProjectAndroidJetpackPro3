@@ -8,9 +8,7 @@ import com.lukitor.projectandroidjetpackpro1.data.source.local.entity.MovieEntit
 class DetailViewModel(private val movieRepository: MovieRepository) : ViewModel() {
     fun getDetail(judul: String): LiveData<List<MovieEntitiy>> = movieRepository.getDetail(judul)
     fun setFavorite(moive: MovieEntitiy) {
-        var newState = moive.favorite
-        if (newState == 0) newState = 1
-        else newState = 0
+        val newState = moive.favorite
         movieRepository.setFavorite(moive, newState)
     }
 }
